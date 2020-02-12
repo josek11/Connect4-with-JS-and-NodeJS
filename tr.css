@@ -1,0 +1,36 @@
+.coluna {
+	/*width: 100px; height: 600px;
+	background: lightgrey;ANTES HEIGHT 900 145 145*/
+	/*width: 100px;    
+	height: 600px;*/
+    background: #302300; float:right;
+    margin: 0px 0px; 
+    border-radius:10px;
+
+}
+
+.cell {
+	cursor: pointer;
+	width: 95px;
+	height: 95px;
+	border-radius:50%;
+	
+	margin-right: 2.5px;    margin-bottom: 5px; margin-left:2.5px;
+	margin-top:1px;
+}
+
+.base{
+	text-align: left;
+	padding:0px 280px;
+	position:relative;
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8">
+		<title>Primeira</title>
+		<script src = "rest/coding.js"></script>
+		<link rel="stylesheet" type="text/css" href="rest/tr.css">
+		<link rel="stylesheet" type="text/css" href="rest/myCss.css">
+		<script src = "rest/myJs.js"></script>
+		<script src = "rest/ent2.js"></script>
+	</head>
+
+<body>
+		<h1 class="myfont" id="myfont"> 4 EM LINHA </h1>
+		<hr>
+
+
+		<!--MENU GERAL-->
+	<div class="geral" id="geral">
+
+				<div id="menu" class="menu">
+					<b>
+					<span id="multiplayer" class="meumenu" onclick="mygameStart(0)">Singleplayer</span><br> 
+					<span id="multiplayer2" class="meumenu" onclick="loginStart()">Multiplayer</span><br> 
+					<span id="instructions" class="meumenu" onclick="instrucoesStart()">Instruções</span><br>
+					<span id="config" class="meumenu" onclick="configStart()">Config</span><br>
+					<span id="scores" class="meumenu" onclick="scoresStart()">Scores</span><br>
+					</b>
+				</div>
+
+			<!--SINGLEPLAYER-->
+			<div id ="base" class="base">
+			</div>
+
+			<div id="turnoonline" class="turnoonline">
+				<a class= "turnoonline2"></a>
+			</div>
+
+			<!--MULTIPLAYER CLICK-->
+			<div id="login" class="login">
+				<p class="headings">Multiplayer:</p>
+				<form name="login" method="post">
+  					Username:
+  					<input type="text" name="nick" size="14" id="mp_nick"><br>
+  					Password:
+  					<input type="password" name="password" size="14" id="mp_pass"><br><br>
+  					<input type="button" class="button" value="Sign up" onclick="register()">
+  					<input type="button" class="button" value="Back" onclick="loginOver()"><br><br>
+  					<input type="button" class="button" value="Rankings" onclick="ranking()">
+				</form>
+			</div>
+
+			<!--JOIN MENU-->
+			<div id="mp_menu" class="mp_menu">
+				<p class="headings">JOIN GAME:</p>
+					<form name="login" method="post">
+						Grupo:
+						<input type="text" name="group" size="14" id="mp_grupo"><br>
+					</form>
+					<input type="button" class="button" value="Start Game" onclick="groupStart2()"><br><br>
+					<input type="button" class="button" value="Back to Menu" onclick="backtoMenu()"><br>
+
+			</div>
+		
+
+
+			<!--CONFIGURACOES-->
+			<div id="config1" class="config1">
+				<!--<p class="headings">Configurações:</p>-->
+				<div id="comp" class="headings">Tamanho do tabuleiro:</div>
+				<form>
+  				<input type="radio" name="gender" value="male" onclick = "myTabConfig(4, 5), myConfig2(4, 5)"> 4x5<br>
+  				<input type="radio" name="gender" value="female" onclick="myTabConfig(5, 6), myConfig2(5, 6)"> 5x6<br>
+  				<input type="radio" name="gender" value="other" onclick = "myTabConfig(6, 7), myConfig2(6, 7)"> 6x7<br>
+  				<input type="radio" name="gender" value="female" onclick="myTabConfig(7, 8), myConfig2(7, 8)"> 7x8<br>
+				</form>
+				<div id="comp2" class="headings">Primeiro jogador:</div>
+				<form id="comp3" class="comp3">
+				<input type="radio" name="cor" value="red" onclick= "primeiroJogador(0)">Jogador<br>
+				<input type="radio" name="cor" value="yellow" onclick= "primeiroJogador(1)">Computador<br>
+ 				</form>
+ 				<div id="comp4" class="headings">Escolha a cor:</div>
+ 				<form id="comp5" class="comp3">
+				<input type="radio" name="cor" value="red" onclick= "escolherCor(0)">Vermelho<br>
+				<input type="radio" name="cor" value="yellow" onclick= "escolherCor(1)">Amarelo<br>
+ 				</form>
+
+				<input type="button" class="button" value="Save" onclick="configOver()">
+			</div>
+
+			<!--Scores-->
+			<div id="classificacao" class="classificacao">
+				<p class="headings">Scores:</p>
+				<table class="scoretable">
+				  <tr>
+				    <th colspan="3">Wins</th>
+				  </tr>
+				  <tr>
+				    <td></td>
+				    <td>Player</td>
+				    <td>Computador</td>
+				  </tr>
+				  <tr>
+				    <td>4x5</td>
+				    <td id="4x50">0</td>
+				    <td id="4x51">0</td>
+				  </tr>
+				  <tr>
+				    <td>5x6</td>
+				    <td id="5x60">0</td>
+				    <td id="5x61">0</td>
+				  </tr>
+				  <tr>
+				    <td>6x7</td>
+				    <td id="6x70">0</td>
+				    <td id="6x71">0</td>
+				  </tr>
+				  <tr>
+				  	<td>7x8</td>
+				    <td id="7x80">0</td>
+				    <td id="7x81">0</td>
+				  </tr>
+				</table>
+				<br>
+				<input type="button" class="button" value="Back" onclick="scoresOver()">
+			</div>
+
+			<div id ="mytable2" class=classxd>
+			<table id=mytable class=scoretable>
+						<tr>
+						<td><b>Nick</b></td>
+						<td><b>Victories</b></td>
+						<td><b>Wins</b></td>
+						</tr>
+  			</table>
+  					<input type="button" class="button" value="Back" onclick="rankingOver(), clearTable()">
+  			</div>
+
+
+			<!--INSTRUCOES-->
+			<div id="instrucoes" class="instrucoes">
+				<p class="headings">Instruções</p>
+				<p>Cada jogador joga com peças de cor diferente(amarela ou vermelha) e alternadamente coloca uma peça numa das células ainda não completamente preenchidas. Ganha o primeiro jogador que conseguir colocar 4 peças da sua cor alinhadas, na vertical, horizontal ou diagonal.</p>
+				<p>Por default o tamanho do tabuleiro é 6x7. É possivel alterar nas configurações.</p>
+				<p>Por default o primeiro a jogar é o jogador e a cor predefinida é vermelho. É possivel alterar ambos nas configurações.</p>
+				<input type="button" class="button" value="Back" onclick="instrucoesOver()">
+			</div>
+
+
+			<!--INSTRUCOES2-->
+			<div id="instrucoes2" class="instrucoes2">
+				<p class="headings">Instruções</p>
+				<p>Para jogar basta clickar numa coluna do tabuleiro, caso esteja a jogar contra o computador, clique no tabuleiro para o computador fazer a sua jogada(só na primeira jogada)</p>
+				<p>Por default irá ver a sua cor vermelha e a cor do adversário em amarelo, pode alterar nas definições</p>
+				<p>Em modo online o primeiro a jogar será indicado num texto ao lado do tabuleiro</p>
+				<input type="button" class="button" value="Back" onclick="instructOver()"><br>
+			</div>
+
+	</div>
+
+			<!--BOTAO QUIT GAME DO JOGO-->
+			<div id="backb" class = "helpb">
+				<button class="button" value="back" onclick="mygameOver(), prepleave(), myClear()">Desistir</button>
+			</div>
+
+			<div id="backb2" class = "instruct">
+				<button class="button" value="back" onclick="openInstruct()">Instruções</button>
+			</div>
+
+			
+
+
+</body>
+
+</html>
